@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    .bg-f2 {
+      background-color: #f8f9fa;
+    }
+
+    video {
+      width: 480px;
+      height: auto;
+    }
+
+    .videoRow {
+      margin-top: 30px;
+    }
+
+    #previewLabel {
+      display: block;
+      position: absolute;
+    }
+  </style>
+  <title class="cdnplus">cdn plus功能</title>
+<link href="../index.0569eae9.css" rel="stylesheet"></head>
+
+<body class="bg-f2">
+  <div class="container">
+
+    <div class="my-3 p-3 bg-white rounded box-shadow small">
+
+      <h6 class="border-bottom border-gray pb-2 mb-0">cdn l3降级功能</h6>
+
+      <div class="row" style="margin-top:1%">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="audioList"><strong
+                  class="text-gray-dark audioDevices">音频设备</strong></label>
+            </div>
+            <select class="custom-select" id="audioList" style="width: 50%">
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="videoList"><strong
+                  class="text-gray-dark videoDevices">视频设备</strong></label>
+            </div>
+            <select class="custom-select" id="videoList" style="width: 50%">
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="speakerList"><strong
+                  class="text-gray-dark ">扬声器设备</strong></label>
+            </div>
+            <select class="custom-select" id="speakerList" style="width: 50%">
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="playMode"><strong
+                  class="text-gray-dark playMode">拉流模式</strong></label>
+            </div>
+            <select class="custom-select" id="playMode" style="width: 50%">
+              <option value="auto" class="auto">默认</option>
+              <option value="all" class="all">拉音视频</option>
+              <option value="video" class="onlyVideo">只拉视频</option>
+              <option value="audio" class="onlyAudio">只拉音频</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="resourceMode"><strong
+                  class="text-gray-dark resourceMode">拉流选项</strong></label>
+            </div>
+            <select class="custom-select" id="resourceMode" style="width: 50%">
+              <option value="0">rtc</option>
+              <option value="2">l3</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="videoQuality"><strong
+                  class="text-gray-dark videoQuality">推流质量</strong></label>
+            </div>
+            <select class="custom-select" id="videoQuality" style="width: 50%">
+              <option value="1" selected>标清</option>
+              <option value="2">高清</option>
+              <option value="3">超清</option>
+              <option value="4">自定义</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="channelCount"><strong
+                  class="text-gray-dark channelCount">声道</strong></label>
+            </div>
+            <select class="custom-select" id="channelCount" style="width: 50%">
+              <option value="1" class="channel1">默认</option>
+              <option value="2" class="channel2">双声道</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="videoCodec"><strong
+                  class="text-gray-dark videoCodeType">视频编码</strong></label>
+            </div>
+            <select class="custom-select" id="videoCodec" style="width: 60%">
+              <option value="">auto</option>
+              <option value="H264">H264</option>
+              <option value="VP8">VP8</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="playMode"><strong class="text-gray-dark repeat">重复推拉流</strong></label>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="resourceMode"><strong
+                  class="text-gray-dark resourceMode">拉流策略</strong></label>
+            </div>
+            <select class="custom-select" id="resourceMode" style="width: 50%">
+              <option value="0" selected>RTC</option>
+              <option value="1">CDN</option>
+              <option value="2">L3</option>
+              <option value="3">降级策略</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="cdnType"><strong
+                  class="text-gray-dark resourceMode">CDN资源类型</strong></label>
+            </div>
+            <select class="custom-select" id="cdnType" style="width: 50%">
+              <option value="" selected>默认</option>
+              <option value="flv">FLV</option>
+              <option value="hls">HLS</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="roomId"><strong class="text-gray-dark roomid">房间号</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="roomId" style="width: 75%; max-width: 200px"
+              aria-describedby="emailHelp" placeholder="please enter room ID">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="streamID"><strong class="text-gray-dark">拉流ID</strong></label>
+            </div>
+            <input class="form-control d-inline" id="streamID" style="width: 75%; max-width: 200px"
+              aria-describedby="emailHelp" placeholder="please enter pull stream id">
+          </div>
+        </div>
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="extraInfo"><strong
+                  class="text-gray-dark extrainfo">流附加信息</strong></label>
+            </div>
+            <input type="input" class="form-control d-inline" id="extraInfoInput" style="width: 75%; max-width: 200px"
+              aria-describedby="emailHelp" placeholder="please stream extraInfo">
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="playStreamID"><strong class="text-gray-dark">拉流ID</strong></label>
+            </div>
+            <input type="input" class="form-control d-inline" id="playStreamID" style="width: 75%; max-width: 200px"
+              aria-describedby="emailHelp" placeholder="please streamID">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="audioBitRate"><strong class="text-gray-dark">音频码率</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="audioBitrate" aria-describedby="emailHelp"
+              placeholder="音频码率" value="">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="enableDualStream"><strong
+                  class="text-gray-dark enableDualStream">开启大小流</strong></label>
+            </div>
+            <select class="custom-select" id="enableDualStream" value="0" style="width: 60%">
+              <option value="1">开</option>
+              <option value="0">关</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="streamType"><strong
+                  class="text-gray-dark streamType">大小流</strong></label>
+            </div>
+            <select class="custom-select" id="streamType" style="width: 60%">
+              <option value="">auto</option>
+              <option value="0">小流</option>
+              <option value="1">大流</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="tcpOnly"><strong class="text-gray-dark">推拉流策略</strong></label>
+            </div>
+            <select class="custom-select" id="tcpOnly" style="width: 50%">
+              <option value="0">auto</option>
+              <option value="1">只走tcp</option>
+              <option value="2">只走udp</option>
+            </select>
+          </div>
+        </div> -->
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="tcpOnly"><strong class="text-gray-dark">自动播放弹窗</strong></label>
+            </div>
+            <select class="custom-select " id="enable-dialog" value="1" style="width: 60%">
+              <option value="1">开启</option>
+              <option value="0">关闭</option>
+            </select>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- <div class="row" style="margin-top:1%">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="noiseSuppression"><strong class="text-gray-dark">减噪</strong></label>
+            </div>
+            <select class="custom-select" id="noiseSuppression" style="width: 50%">
+              <option value="1">开</option>
+              <option value="0">关</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="autoGainControl"><strong class="text-gray-dark">自动增益</strong></label>
+            </div>
+            <select class="custom-select" id="autoGainControl" style="width: 50%">
+              <option value="1">开</option>
+              <option value="0">关</option>
+            </select>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="echoCancellation"><strong
+                  class="text-gray-dark">回声消除</strong></label>
+            </div>
+            <select class="custom-select" id="echoCancellation" style="width: 50%">
+              <option value="1">开</option>
+              <option value="0">关</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="retainPreview"><strong
+                  class="text-gray-dark">是否保留预览画面</strong></label>
+            </div>
+            <select class="custom-select" id="retainPreview" style="width: 50%">
+              <option value="1">是</option>
+              <option value="0" selected>否</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="retainPreview"><strong class="text-gray-dark">SEI
+                  type</strong></label>
+            </div>
+            <select class="custom-select" id="seiType" style="width: 50%">
+              <option value="1">标准</option>
+              <option value="0" selected>zego</option>
+            </select>
+          </div>
+        </div> -->
+
+
+      <!-- </div> -->
+
+      <!-- <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="width"><strong class="text-gray-dark">宽</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="width" aria-describedby="emailHelp" placeholder=""
+              value="">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#constraintExtendModel"
+                id="widthExtendButton">
+                约束扩展
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="height"><strong class="text-gray-dark">高</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="height" aria-describedby="emailHelp" placeholder=""
+              value="">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#constraintExtendModel"
+                id="heightExtendButton">
+                约束扩展
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="frameRate"><strong class="text-gray-dark">帧率</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="frameRate" aria-describedby="emailHelp" placeholder=""
+              value="">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#constraintExtendModel"
+                id="frameRateExtendButton">
+                约束扩展
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="bitrate"><strong class="text-gray-dark">码率</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="bitrate" aria-describedby="emailHelp" placeholder=""
+              value="">
+          </div>
+        </div>
+      </div> -->
+
+      <!-- ConstraintExtendModel -->
+      <!-- <div class="modal fade" id="constraintExtendModel" tabindex="-1" role="dialog"
+        aria-labelledby="constraintExtendModelLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="constraintExtendModelLabel">约束扩展</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="exact"><strong class="text-gray-dark">exact</strong></label>
+                </div>
+                <input type="text" class="form-control" aria-describedby="exact" id="exact">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="ideal"><strong class="text-gray-dark">ideal</strong></label>
+                </div>
+                <input type="text" class="form-control" aria-describedby="ideal" id="ideal">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="max"><strong class="text-gray-dark">max</strong></label>
+                </div>
+                <input type="text" class="form-control" aria-describedby="max" id="max">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="min"><strong class="text-gray-dark">min</strong></label>
+                </div>
+                <input type="text" class="form-control" aria-describedby="min" id="min">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="extendOK" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="roomId"><strong class="text-gray-dark ">token有效期</strong></label>
+            </div>
+            <input type="text" class="form-control d-inline" id="custom-expiretime" style="width: 75%;"
+              placeholder="过期时间 s ">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="publish-stream"><strong class="text-gray-dark ">推流ID</strong></label>
+            </div>
+            <input type="text" class="form-control d-inline" id="publish-stream" style="width: 75%;" placeholder="流ID ">
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <span>userID: </span>
+        <span id="custom-userid"></span>
+      </div>
+      <!-- <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="roomId"><strong class="text-gray-dark ">更新 token</strong></label>
+            </div>
+            <input type="label" class="form-control d-inline" style="width: 180px"
+              placeholder="userid">
+            <input type="text" class="form-control d-inline" id="custom-token" style="width: 75%;" placeholder="token">
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="seiUUID"><strong class="text-gray-dark ">媒体次要信息UUID</strong></label>
+            </div>
+
+            <input type="text" class="form-control d-inline" id="seiUUID" style="width: 75%;" placeholder="seiUUID" value="4fb6482e-9c68-66">
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="seiInfo"><strong class="text-gray-dark ">媒体次要信息</strong></label>
+            </div>
+            <input type="label" class="form-control d-inline" style="width: 180px"
+              placeholder="userid">
+            <input type="text" class="form-control d-inline" id="seiInfo" style="width: 75%;" placeholder="seiInfo"
+              value="Hello, the world">
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <span>sei字节长度: </span>
+        <span id="seibytelen"></span>
+      </div> -->
+      <div class="row">
+        <div class="col-sm">
+          <button type="button" id="createRoom" class="btn btn-primary btn-sm enterRoomPush">进入房间（推流）</button>
+          <!-- <button type="button" id="enterRoom" class="btn btn-primary btn-sm">进房预览</button>
+          <button type="button" id="publish" class="btn btn-primary btn-sm">推流</button> -->
+          <button type="button" id="openRoom" class="btn btn-primary btn-sm enterRoomPlay">进入房间（不推流）</button>
+          <button type="button" id="pullStream" class="btn btn-primary btn-sm">根据流ID拉流</button>
+          <!-- <button type="button" id="openRoomPlay" class="btn btn-primary btn-sm">进房同时拉流</button>
+          <button type="button" id="sendSEI" class="btn btn-primary btn-sm">发送SEI</button>
+          <button type="button" id="sendSEIInterval" class="btn btn-primary btn-sm">自动发送SEI</button>
+          <button type="button" id="useVideo" class="btn btn-secondary btn-sm">更改视频输入设备</button>
+          <button type="button" id="useAudio" class="btn btn-secondary btn-sm">更改音频输入设备</button>
+          <button type="button" id="toggleCamera" class="btn btn-primary btn-sm enableCamera">开关视频</button>
+          <button type="button" id="toggleSpeaker" class="btn btn-primary btn-sm enableMicrophone">开关音频</button>
+          <button type="button" id="toggleVideoCapturing" class="btn btn-primary btn-sm"
+            title="toggleCapturing">开关摄像头</button> -->
+          <!-- <button type="button" id="toggleMicrophone" class="btn btn-primary btn-sm toggleMicrophone">开关麦克风</button>
+          <button type="button" id="mutePlayStreamVideo" class="btn btn-primary btn-sm">停止/恢复拉视频流</button>
+          <button type="button" id="mutePlayStreamAudio" class="btn btn-primary btn-sm">停止/恢复拉音频流</button>
+          <button type="button" id="stopPlaySound" class="btn btn-primary btn-sm unenableSound">停止获取音浪</button>
+          <button type="button" id="resumePlaySound" class="btn btn-primary btn-sm resumeSound">恢复获取音浪</button>
+          <button type="button" id="extraInfo" class="btn btn-primary btn-sm">修改流附加信息</button>
+          <button type="button" id="switchConstraints" class="btn btn-primary btn-sm">改变推流视频参数</button>
+          <button type="button" id="replaceExternalVideo" class="btn btn-primary btn-sm">切换外部视频轨</button>
+          <button type="button" id="setAudioConfig" class="btn btn-primary btn-sm">改变推流3A</button>
+          <button type="button" id="playVideo" class="btn btn-primary btn-sm">播放视频</button>
+          <button type="button" id="reAcquireDevice" class="btn btn-primary btn-sm">重新获取设备</button>-->
+          <button type="button" id="leaveRoom" class="btn btn-secondary btn-sm leaveRoom">退出</button>
+          <!-- <button type="button" id="custom-resetToken" ˝ class="btn btn-primary btn-sm"> 更新token </button>
+          <button type="button" id="togglePlayVideo" class="btn btn-primary btn-sm" title="muteMic">开闭拉流画面</button>
+          <button type="button" id="togglePlayAudio" class="btn btn-primary btn-sm" title="muteMic">开闭拉流声音</button>
+          <button type="button" id="replaceCamera" class="btn btn-primary btn-sm">切换为摄像头</button>
+          <button type="button" id="replaceScreenVideo" class="btn btn-primary btn-sm">切换屏幕视频轨</button>
+          <button type="button" id="addTrack" class="btn btn-primary btn-sm">增加轨道</button>
+          <button type="button" id="removeTrack" class="btn btn-primary btn-sm">删除轨道</button>
+          <button type="button" id="publishImg" class="btn btn-primary btn-sm" title="uploadQuality">关闭视频推图片</button>
+          <button type="button" id="remove" class="btn btn-primary btn-sm">删除轨道</button>
+          <button type="button" id="switchAiDenoise" class="btn btn-primary btn-sm">开启AI降噪</button> -->
+        </div>
+        <div>
+          <button type="button" id="resumeAutoplay" class="btn btn-primary btn-sm">恢复播放</button>
+        </div>
+        <!-- <fieldset>
+          <legend>beauty config</legend>
+          <button type="button" id="openVideoEffect" class="btn btn-primary btn-sm" title="setBeauty">开启美颜</button>
+          <button type="button" id="closeVideoEffect" class="btn btn-primary btn-sm" title="setBeauty">关闭美颜</button><br>
+          磨皮: <input type="range" min="0" max="100" value="100" id="range-blur"><br>
+          美白: <input type="range" min="0" max="100" value="100" id="range-light"><br>
+          红润: <input type="range" min="0" max="100" value="100" id="range-red"><br>
+          锐化: <input type="range" min="0" max="100" value="100" id="range-sharp"><br>
+          低照度增强: <input type="checkbox"  id="range-lowlight" ><br>
+        </fieldset> -->
+      </div>
+
+      <div class="row videoRow">
+        <!-- <div class="col-sm">
+          <h5 class="sound d-none"><span class="soundText">当前音量：</span> <span id="soundLevel">0</span></h5>
+          <label id="previewLabel" class="text-white"></label>
+          <div class="view-wrapper" style="width: 240px;border: 1px solid #dfdfdf; font-size: 12px;">
+            <div id="local-view" style="min-width: 240px;max-width: 240px; height: 240px;"></div>
+            <div id="local-action">
+              <button id="local-ctrl-audio">开关声音</button>
+              <button id="local-ctrl-video">开关视频</button>
+              <button id="local-ctrl-resume">恢复</button>
+              <button id="local-ctrl-play">挂载</button>
+              <button id="local-ctrl-stop">卸载</button>
+              <button id="local-ctrl-speaker">设扬声器</button>
+              <input id="local-ctrl-volume" type="range" min="0" max="100" value="100" id="audioVolume1">
+              <span id="local-ctrl-audio-state"></span>
+              <span id="local-ctrl-video-state"></span>
+            </div>
+          </div>
+          <textarea id="view-play-options" name="story" rows="4" cols="25"></textarea> -->
+          <video id="previewVideo" controls autoplay muted playsinline></video>
+           <!--<video id="customVideo" style="max-width: 180px" crossOrigin="anonymous" muted playsinline autoplay controls
+            src="https://zego-public.oss-cn-shanghai.aliyuncs.com/sdk-doc/assets/big_buck_bunny.mp4" loop></video>
+          <video id="testVideo" style="max-width: 180px" autoplay muted playsinline></video>
+        </div> -->
+        <div class="col-sm remoteVideo">
+          <!-- <video  autoplay muted playsinline></video> -->
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+<script type="text/javascript" src="../l3cdn/l3cdn.bundle.js"></script></body>
+
+</html>
